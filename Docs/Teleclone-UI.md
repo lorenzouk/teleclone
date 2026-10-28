@@ -29,6 +29,10 @@ Each Judge stage accepts one choice. A new `ShowJudge` call allows a new choice.
 
 ## Preview
 
-Use **Teleclone > UI > Build UI and open preview**, then enter Play Mode. In the five-round demo, Space advances Drawer and Cloner. Click a drawing for Judge. After the final scoreboard, Space restarts. Demo code is only for this separate preview scene and does not implement scoring.
+Open **Assets/Scenes/SampleScene.unity**, then enter Play Mode. The UI prefab is already connected to the existing demo. Space advances Drawer and Cloner. Click a drawing for Judge. After five rounds the scoreboard appears; Space restarts. The old Canvas is kept inactive, and the scene reuses its existing EventSystem.
+
+The black pen and five-round flow are temporary demo components (`DemoSketchSurface` and `TelecloneUIDemo`). When the team's drawing and game scripts are ready, remove those two components from the scene and call the four methods above instead. The prefab itself contains no demo or scoring logic. Scores stay zero until Beck updates `PlayerData.score`; the existing `ScoringUI.addScore()` only changes text.
+
+For a separate scratch scene, use **Teleclone > UI > Build UI and open preview**. This does not change SampleScene.
 
 The source project stays on Unity **6000.3.27f1 (6.3)**, which has not been tested on this machine. Local verification uses a separate copy in Unity **6000.5.10f1 (6.5)**. Do not copy that preview project's version or package changes into the source project.
