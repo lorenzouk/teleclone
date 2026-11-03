@@ -22,13 +22,23 @@ public class ScoringUI : MonoBehaviour
     // The button supplies player number 1, 2, or 3 in the Inspector.
     public void AddPointToPlayer(int playerNum)
     {
+        ChangePlayerScore(playerNum, 1);
+    }
+
+    public void SubtractPointFromPlayer(int playerNum)
+    {
+        ChangePlayerScore(playerNum, -1);
+    }
+
+    void ChangePlayerScore(int playerNum, int amount)
+    {
         if (players == null || playerNum < 1 || playerNum > 3) return;
 
         foreach (PlayerData player in players)
         {
             if (player != null && player.playerNum == playerNum)
             {
-                addScore(player, 1);
+                addScore(player, amount);
                 return;
             }
         }
