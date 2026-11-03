@@ -30,6 +30,15 @@ public class ScoringUI : MonoBehaviour
         ChangePlayerScore(playerNum, -1);
     }
 
+    public void ResetScores()
+    {
+        if (players == null) return;
+        foreach (PlayerData player in players)
+            if (player != null) player.score = 0;
+
+        RefreshScores();
+    }
+
     void ChangePlayerScore(int playerNum, int amount)
     {
         if (players == null || playerNum < 1 || playerNum > 3) return;
