@@ -32,8 +32,9 @@ public class Draw : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current == null || drawingCanvas == null)
+        if (Mouse.current == null || drawingCanvas == null || !drawingCanvas.gameObject.activeInHierarchy)
         {
+            isDrawing = false;
             return;
         }
 
